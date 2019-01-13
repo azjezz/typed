@@ -1,5 +1,28 @@
 <?php declare(strict_types=1);
 
+function &typed($value)
+{
+  if (is_bool($value)) {
+    return bool($value);
+  } elseif (is_string($value)) {
+    return string($value); 
+  } elseif (is_float($value)) {
+    return float($value);
+  } elseif (is_int($value)) {
+    return int($value); 
+  } elseif (is_iterable($value)) {
+    return iterable($value);
+  } elseif (is_callable($value, false)) {
+    return func($value);
+  } elseif (is_object($value)) {
+    return object($value);
+  } else {
+    throw new Typed\InvalidArgumentException(
+      sprintf('Couldn\'t create a typed variable for "%s" type.', gettype($value))
+    ); 
+  }
+}
+
 function &string(string $value = ''): string
 {
   return Typed\Variable::string($value);
@@ -15,19 +38,43 @@ function &int(int $value = 0): int
   return Typed\Variable::int($value);
 }
 
-function integer(int $value = 0): int
+function &integer(int $value = 0): int
 {
   return int($value);
 }
 
-function &array(array $value = []): array
+function &arr(array $value = []): array
 {
-  return Typed\Variable::array($value);
+  return Typed\Variable::arr($value);
 }
-  
+
+/**
+ * TODO: create a `Typed\Vector` object to ensure that all keys are numeric
+ */
+function &vector(array $value = []): array
+{
+  return arr(array_values($value));        
+}
+      
+/**
+ * TODO: create a `Typed\KeySet` class to ensure that all values are valid keys ( string or int )
+ */
+function &keyset(array $value = []): array
+{
+  return arr(array_keys($value));        
+}
+      
+/**
+ * TODO: create a `Typed\Set` class to ensure that all values are unique
+ */
+function &set(array $value = []): array
+{
+  return arr(array_unique($value)); 
+}
+
 function &bool(bool $value = false): bool
 {
-  return Typed\Variable::array($value);
+  return Typed\Variable::bool($value);
 }
 
 function &boolean(bool $value = false): bool
@@ -50,9 +97,9 @@ function &object(?object $value = null): object
   return Typed\Variable::object($value);
 }
 
-function &callable(?callable $value = null): callable
+function &func(?callable $value = null): callable
 {
-  return Typed\Variable::callable($value);
+  return Typed\Variable::func($value);
 }
 
 function &countable(?Countable $value = null): Countable
