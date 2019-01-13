@@ -46,7 +46,7 @@ final class Variable
     return $var->int;
   }
   
-  public static function &array(array $value = []): array
+  public static function &arr(array $value = []): array
   {
     $var = new self();
     $var->array = $value;
@@ -83,9 +83,9 @@ final class Variable
     return $var->object;
   }
   
-  public static function &callable(?callable $value = null): callable
+  public static function &func(?callable $value = null): callable
   {
-    $value ??= [static::class, 'callable'];
+    $value ??= [static::class, 'func'];
     $var = new self();
     $var->callable = $value;
     return $var->callable;
