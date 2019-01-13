@@ -2,7 +2,7 @@
 
 namespace Typed;
 
-class Repository 
+final class Repository 
 {
     private static array $variables = [];
     private function __construct() {}
