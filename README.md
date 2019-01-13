@@ -8,8 +8,17 @@ example :
 <?php declare(strict_types=1);
 
 $name = &string('saif');
-$name = 'azjezz'; // works
-$name = 15; // TypeError
+$age = &int(19);
+
+try {
+
+  $name = 'azjezz'; // works
+  $name = 15; // fails
+  $age = null; // fails
+
+} catch(TypeError $error) {
+   
+}
 ```
 
 you can see all avaible `helpers` [here](https://github.com/azjezz/typed/blob/master/src/bootstrap.php).
