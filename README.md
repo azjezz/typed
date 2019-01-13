@@ -20,8 +20,10 @@ try {
    
 }
 
-$traversable = traversable(new ArrayObject());
-$countable = countable(new ArrayObject());
+// based on the passed variable type
+$string = &typed('saif');
+$traversable = &traversable(new ArrayObject());
+$countable = &countable(new ArrayObject());
 $func = &func('strtolower');
 $object = &object((object) []);
 $stdClass = &stdClass((object) []);
@@ -43,7 +45,7 @@ Since `callable` and `array` cant be used for function names, instead i have use
 `keyset`, `vector` and `set` are just helper to help you create an array of keys ( `keyset = arr(array_keys($value))` ), an array of values ( `vector = arr(array_values($value))` ) and an array of unique values ( `set = arr(array_unique($value))` ).
 
 ### typed 
-`typed()` is a function to help you create a typed variable based on the type of the passed variable, currently it supports `string`, `int`, `float`, `bool`, `object` and `iterable`. it was suggected by @mikesherov on [twitter](https://twitter.com/mikesherov/status/1084512906388144128).
+`typed()` is a function to help you create a typed variables based on the type of the passed variable, currently it supports `string`, `int`, `float`, `bool`, `object` and `iterable`. it was suggected by @mikesherov on [twitter](https://twitter.com/mikesherov/status/1084512906388144128).
 
 ---
 
