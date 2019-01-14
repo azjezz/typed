@@ -14,7 +14,7 @@
             "Typed\\": "src/Typed"
         },
         "files": [
-            "src/bootstrap.php"
+            "src/functions.php"
         ]
     },
     "require": {

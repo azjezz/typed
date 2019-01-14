@@ -4,4 +4,6 @@ namespace Typed;
 
 use InvalidArgumentException as ParentException;
 
-class InvalidArgumentException extends ParentException {}
+class InvalidArgumentException extends ParentException
+{
+}
