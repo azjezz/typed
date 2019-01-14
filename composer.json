@@ -14,7 +14,7 @@
             "Typed\\": "src/Typed"
         },
         "files": [
-            "src/functions.php"
+            "src/Typed/functions.php"
         ]
     },
     "require": {
