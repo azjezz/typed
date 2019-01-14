@@ -43,7 +43,8 @@ for this i made some helper functions that allow you to remove variables from th
 
 - `Typed\purge()` will delete every reference registered in the repository, you can call this function at the end of every request/response cycle in a web application per example.
 - `Typed\clean(string $namespace = 'default')` this function will delete every reference to a typed variable in a specific namespace as shown in the example above, its recommended to use a unique namespace every time you use typed variables and call `clean()` to ensure there's no memory leak.
-- `Typed\delete(mixed $value, string $namespace = 'default')` this function will delete the last created reference to typed variable with the given value in a specific namespace. example : 
+- `Typed\filter(mixed $value, string $namespace = 'default')` this function will delete the every created reference to a typed variable with the given value in a specific namespace.
+- `Typed\delete(mixed $value, string $namespace = 'default')` similar to what `Typed\filter` does, this function allows you to delete the last created reference to a typed variable with the given value in a specific namespace. example : 
 ```php
 <?php declare(strict_types=1);
 

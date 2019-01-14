@@ -55,18 +55,16 @@ final class Repository
      */
     public static function filter($value, string $namespace): void
     {
-        foreach (static::$variables as $ns) {
-            if ($namespace !== $ns) {
-                continue;
-            }
+        if (!array_key_exists($namespace, static::$variables)) {
+            return;
+        }
 
-            /**
-             * @var VariableInterface $var
-             */
-            foreach ($ns as $i => $var) {
-                if ($var->getValue() === $value) {
-                    unset(static::$variables[$ns][$i]);
-                }
+        /**
+         * @var VariableInterface $var
+         */
+        foreach (static::$variables[$namespace] as $i => $var) {
+            if ($var->getValue() === $value) {
+                unset(static::$variables[$namespace][$i]);
             }
         }
     }
