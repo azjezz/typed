@@ -9,5 +9,15 @@
             "email": "azjezz@protonmail.com"
         }
     ],
-    "require": {}
+    "autoload": {
+        "psr-4": {
+            "Typed\\": "src/Typed"
+        },
+        "files": [
+            "src/bootstrap.php"
+        ]
+    },
+    "require": {
+        "php": "^7.4.0"
+    }
 }
