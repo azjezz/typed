@@ -1,0 +1,13 @@
+{
+    "name": "azjezz/typed",
+    "description": "Typed variables for PHP 7.4+",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "azjezz",
+            "email": "azjezz@protonmail.com"
+        }
+    ],
+    "require": {}
+}
