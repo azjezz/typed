@@ -53,7 +53,7 @@ use Typed as t;
 $name = &t\string('azjezz', 'data');
 $age = &t\int(19, 'data');
 
-t\delete('azjezz', 'data');
+t\delete($name, 'data');
 
 /**
  * the reference to the `$name` variable has been deleted.
